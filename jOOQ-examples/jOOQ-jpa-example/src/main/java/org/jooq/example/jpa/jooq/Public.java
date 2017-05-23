@@ -13,7 +13,11 @@ import javax.annotation.Generated;
 import org.jooq.Catalog;
 import org.jooq.Sequence;
 import org.jooq.Table;
+import org.jooq.example.jpa.jooq.tables.Aa;
 import org.jooq.example.jpa.jooq.tables.Actor;
+import org.jooq.example.jpa.jooq.tables.Bb;
+import org.jooq.example.jpa.jooq.tables.Cc;
+import org.jooq.example.jpa.jooq.tables.Dd;
 import org.jooq.example.jpa.jooq.tables.Film;
 import org.jooq.example.jpa.jooq.tables.FilmActor;
 import org.jooq.example.jpa.jooq.tables.Language;
@@ -33,7 +37,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = 1038349230;
+    private static final long serialVersionUID = -441775627;
 
     /**
      * The reference instance of <code>PUBLIC</code>
@@ -41,9 +45,29 @@ public class Public extends SchemaImpl {
     public static final Public PUBLIC = new Public();
 
     /**
+     * The table <code>PUBLIC.AA</code>.
+     */
+    public final Aa AA = org.jooq.example.jpa.jooq.tables.Aa.AA;
+
+    /**
      * The table <code>PUBLIC.ACTOR</code>.
      */
     public final Actor ACTOR = org.jooq.example.jpa.jooq.tables.Actor.ACTOR;
+
+    /**
+     * The table <code>PUBLIC.BB</code>.
+     */
+    public final Bb BB = org.jooq.example.jpa.jooq.tables.Bb.BB;
+
+    /**
+     * The table <code>PUBLIC.CC</code>.
+     */
+    public final Cc CC = org.jooq.example.jpa.jooq.tables.Cc.CC;
+
+    /**
+     * The table <code>PUBLIC.DD</code>.
+     */
+    public final Dd DD = org.jooq.example.jpa.jooq.tables.Dd.DD;
 
     /**
      * The table <code>PUBLIC.FILM</code>.
@@ -85,9 +109,13 @@ public class Public extends SchemaImpl {
 
     private final List<Sequence<?>> getSequences0() {
         return Arrays.<Sequence<?>>asList(
-            Sequences.SYSTEM_SEQUENCE_1618BD03_9A26_4D48_B0A6_877B02459E15,
-            Sequences.SYSTEM_SEQUENCE_503CA3AC_8641_4124_AA6E_F6C8F2CD7AD3,
-            Sequences.SYSTEM_SEQUENCE_F650BF21_63C0_484F_BB2C_647D1FD0D9C5);
+            Sequences.SYSTEM_SEQUENCE_39C1FBD4_DB9F_4A25_9DE6_1F59D85F6325,
+            Sequences.SYSTEM_SEQUENCE_39D31D9C_4B4E_4851_A102_6672E6FF9EDE,
+            Sequences.SYSTEM_SEQUENCE_3ECFD423_17E3_47D7_8776_165D26418027,
+            Sequences.SYSTEM_SEQUENCE_40563DD5_3FB0_4101_A349_173312643592,
+            Sequences.SYSTEM_SEQUENCE_87F29A23_4313_41C7_A0B1_D0D498414C74,
+            Sequences.SYSTEM_SEQUENCE_C22BE785_4DB5_41AD_923B_82D00FB154CD,
+            Sequences.SYSTEM_SEQUENCE_DA5D3C33_3D9C_4D3E_A1D2_3E57AEEFB8D5);
     }
 
     @Override
@@ -99,7 +127,11 @@ public class Public extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+            Aa.AA,
             Actor.ACTOR,
+            Bb.BB,
+            Cc.CC,
+            Dd.DD,
             Film.FILM,
             FilmActor.FILM_ACTOR,
             Language.LANGUAGE);

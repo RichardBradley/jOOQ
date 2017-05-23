@@ -34,16 +34,12 @@
  */
 package org.jooq.example.jpa;
 
-import static org.jooq.example.jpa.jooq.Tables.ACTOR;
-import static org.jooq.example.jpa.jooq.Tables.FILM;
-import static org.jooq.example.jpa.jooq.Tables.FILM_ACTOR;
-import static org.jooq.example.jpa.jooq.Tables.LANGUAGE;
+import static org.jooq.example.jpa.jooq.Tables.*;
 import static org.jooq.impl.DSL.count;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.EnumSet;
 
 import javax.persistence.EntityManager;
@@ -52,9 +48,14 @@ import javax.persistence.EntityManagerFactory;
 import org.jooq.DSLContext;
 import org.jooq.ExecuteContext;
 import org.jooq.SQLDialect;
+import org.jooq.example.jpa.entity.Aa;
 import org.jooq.example.jpa.entity.Actor;
+import org.jooq.example.jpa.entity.Bb;
+import org.jooq.example.jpa.entity.Cc;
+import org.jooq.example.jpa.entity.Dd;
 import org.jooq.example.jpa.entity.Film;
 import org.jooq.example.jpa.entity.Language;
+import org.jooq.example.jpa.jooq.Tables;
 import org.jooq.impl.DSL;
 import org.jooq.impl.DefaultConfiguration;
 import org.jooq.impl.DefaultExecuteListener;
@@ -79,32 +80,15 @@ class JPAExample {
 
         // Set up database
         // ---------------
-        Language english = new Language("English");
-        Language german = new Language("German");
+        Aa one = new Aa("one");
+        Bb two = new Bb("two", one);
+        Cc three = new Cc("three", two);
+        Dd four = new Dd("four", two);
 
-        Actor umaThurman = new Actor("Uma", "Thurman");
-        Actor davidCarradine = new Actor("David", "Carradine");
-        Actor darylHannah = new Actor("Daryl", "Hannah");
-        Actor michaelAngarano = new Actor("Michael", "Angarano");
-        Actor reeceThompson = new Actor("Reece", "Thompson");
-
-        Film killBill = new Film("Kill Bill", english, 111);
-        Film meerjungfrauen = new Film("Meerjungfrauen ticken anders", german, 89);
-
-        killBill.actors.addAll(Arrays.asList(umaThurman, davidCarradine, darylHannah));
-        meerjungfrauen.actors.addAll(Arrays.asList(umaThurman, michaelAngarano, reeceThompson));
-
-        em.persist(english);
-        em.persist(german);
-
-        em.persist(umaThurman);
-        em.persist(davidCarradine);
-        em.persist(darylHannah);
-        em.persist(michaelAngarano);
-        em.persist(reeceThompson);
-
-        em.persist(killBill);
-        em.persist(meerjungfrauen);
+        em.persist(one);
+        em.persist(two);
+        em.persist(three);
+        em.persist(four);
 
         // Flush your changes to the database to be sure that jOOQ can pick them up below
         // ------------------------------------------------------------------------------
@@ -112,20 +96,15 @@ class JPAExample {
 
         System.out.println(
             ctx.select(
-                    ACTOR.FIRSTNAME,
-                    ACTOR.LASTNAME,
-                    count().as("Total"),
-                    count().filterWhere(LANGUAGE.NAME.eq("English")).as("English"),
-                    count().filterWhere(LANGUAGE.NAME.eq("German")).as("German"))
-               .from(ACTOR)
-               .join(FILM_ACTOR).on(ACTOR.ACTORID.eq(FILM_ACTOR.ACTORS_ACTORID))
-               .join(FILM).on(FILM.FILMID.eq(FILM_ACTOR.FILMS_FILMID))
-               .join(LANGUAGE).on(FILM.LANGUAGE_LANGUAGEID.eq(LANGUAGE.LANGUAGEID))
-               .groupBy(
-                    ACTOR.ACTORID,
-                    ACTOR.FIRSTNAME,
-                    ACTOR.LASTNAME)
-               .orderBy(ACTOR.FIRSTNAME, ACTOR.LASTNAME, ACTOR.ACTORID)
+                    AA.TEXT,
+                    BB.TEXT,
+                    CC.TEXT,
+                    DD.TEXT)
+               .from(AA)
+                // Branching chains like Aa -> Bb -> Cc, Bb -> Dd cannot be handled by "onKey()"
+               .join(BB).onKey()
+               .join(CC).onKey()
+               .join(DD).onKey()
                .fetch()
         );
     }
@@ -185,6 +164,11 @@ class JPAExample {
             metadata.addAnnotatedClass(Actor.class);
             metadata.addAnnotatedClass(Film.class);
             metadata.addAnnotatedClass(Language.class);
+
+            metadata.addAnnotatedClass(Aa.class);
+            metadata.addAnnotatedClass(Bb.class);
+            metadata.addAnnotatedClass(Cc.class);
+            metadata.addAnnotatedClass(Dd.class);
 
             SchemaExport export = new SchemaExport();
             export.create(EnumSet.of(TargetType.DATABASE), metadata.buildMetadata());

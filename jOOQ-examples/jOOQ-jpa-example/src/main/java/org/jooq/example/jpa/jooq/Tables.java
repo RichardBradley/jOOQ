@@ -6,7 +6,11 @@ package org.jooq.example.jpa.jooq;
 
 import javax.annotation.Generated;
 
+import org.jooq.example.jpa.jooq.tables.Aa;
 import org.jooq.example.jpa.jooq.tables.Actor;
+import org.jooq.example.jpa.jooq.tables.Bb;
+import org.jooq.example.jpa.jooq.tables.Cc;
+import org.jooq.example.jpa.jooq.tables.Dd;
 import org.jooq.example.jpa.jooq.tables.Film;
 import org.jooq.example.jpa.jooq.tables.FilmActor;
 import org.jooq.example.jpa.jooq.tables.Language;
@@ -26,9 +30,29 @@ import org.jooq.example.jpa.jooq.tables.Language;
 public class Tables {
 
     /**
+     * The table <code>PUBLIC.AA</code>.
+     */
+    public static final Aa AA = org.jooq.example.jpa.jooq.tables.Aa.AA;
+
+    /**
      * The table <code>PUBLIC.ACTOR</code>.
      */
     public static final Actor ACTOR = org.jooq.example.jpa.jooq.tables.Actor.ACTOR;
+
+    /**
+     * The table <code>PUBLIC.BB</code>.
+     */
+    public static final Bb BB = org.jooq.example.jpa.jooq.tables.Bb.BB;
+
+    /**
+     * The table <code>PUBLIC.CC</code>.
+     */
+    public static final Cc CC = org.jooq.example.jpa.jooq.tables.Cc.CC;
+
+    /**
+     * The table <code>PUBLIC.DD</code>.
+     */
+    public static final Dd DD = org.jooq.example.jpa.jooq.tables.Dd.DD;
 
     /**
      * The table <code>PUBLIC.FILM</code>.

@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Actor extends TableImpl<ActorRecord> {
 
-    private static final long serialVersionUID = 1530012488;
+    private static final long serialVersionUID = -927967347;
 
     /**
      * The reference instance of <code>PUBLIC.ACTOR</code>
@@ -54,7 +54,7 @@ public class Actor extends TableImpl<ActorRecord> {
     /**
      * The column <code>PUBLIC.ACTOR.ACTORID</code>.
      */
-    public final TableField<ActorRecord, Integer> ACTORID = createField("ACTORID", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_503CA3AC_8641_4124_AA6E_F6C8F2CD7AD3)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<ActorRecord, Integer> ACTORID = createField("ACTORID", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_39D31D9C_4B4E_4851_A102_6672E6FF9EDE)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>PUBLIC.ACTOR.FIRSTNAME</code>.

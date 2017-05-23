@@ -37,7 +37,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Film extends TableImpl<FilmRecord> {
 
-    private static final long serialVersionUID = -498557127;
+    private static final long serialVersionUID = 96421058;
 
     /**
      * The reference instance of <code>PUBLIC.FILM</code>
@@ -55,7 +55,7 @@ public class Film extends TableImpl<FilmRecord> {
     /**
      * The column <code>PUBLIC.FILM.FILMID</code>.
      */
-    public final TableField<FilmRecord, Integer> FILMID = createField("FILMID", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_F650BF21_63C0_484F_BB2C_647D1FD0D9C5)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<FilmRecord, Integer> FILMID = createField("FILMID", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_DA5D3C33_3D9C_4D3E_A1D2_3E57AEEFB8D5)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>PUBLIC.FILM.LENGTH</code>.

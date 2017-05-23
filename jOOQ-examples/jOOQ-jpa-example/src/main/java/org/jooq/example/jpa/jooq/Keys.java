@@ -9,11 +9,19 @@ import javax.annotation.Generated;
 import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
+import org.jooq.example.jpa.jooq.tables.Aa;
 import org.jooq.example.jpa.jooq.tables.Actor;
+import org.jooq.example.jpa.jooq.tables.Bb;
+import org.jooq.example.jpa.jooq.tables.Cc;
+import org.jooq.example.jpa.jooq.tables.Dd;
 import org.jooq.example.jpa.jooq.tables.Film;
 import org.jooq.example.jpa.jooq.tables.FilmActor;
 import org.jooq.example.jpa.jooq.tables.Language;
+import org.jooq.example.jpa.jooq.tables.records.AaRecord;
 import org.jooq.example.jpa.jooq.tables.records.ActorRecord;
+import org.jooq.example.jpa.jooq.tables.records.BbRecord;
+import org.jooq.example.jpa.jooq.tables.records.CcRecord;
+import org.jooq.example.jpa.jooq.tables.records.DdRecord;
 import org.jooq.example.jpa.jooq.tables.records.FilmActorRecord;
 import org.jooq.example.jpa.jooq.tables.records.FilmRecord;
 import org.jooq.example.jpa.jooq.tables.records.LanguageRecord;
@@ -21,7 +29,7 @@ import org.jooq.impl.AbstractKeys;
 
 
 /**
- * A class modelling foreign key relationships between tables of the <code>PUBLIC</code>
+ * A class modelling foreign key relationships between tables of the <code>PUBLIC</code> 
  * schema
  */
 @Generated(
@@ -38,7 +46,11 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
+    public static final Identity<AaRecord, Integer> IDENTITY_AA = Identities0.IDENTITY_AA;
     public static final Identity<ActorRecord, Integer> IDENTITY_ACTOR = Identities0.IDENTITY_ACTOR;
+    public static final Identity<BbRecord, Integer> IDENTITY_BB = Identities0.IDENTITY_BB;
+    public static final Identity<CcRecord, Integer> IDENTITY_CC = Identities0.IDENTITY_CC;
+    public static final Identity<DdRecord, Integer> IDENTITY_DD = Identities0.IDENTITY_DD;
     public static final Identity<FilmRecord, Integer> IDENTITY_FILM = Identities0.IDENTITY_FILM;
     public static final Identity<LanguageRecord, Integer> IDENTITY_LANGUAGE = Identities0.IDENTITY_LANGUAGE;
 
@@ -46,7 +58,11 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<AaRecord> CONSTRAINT_8 = UniqueKeys0.CONSTRAINT_8;
     public static final UniqueKey<ActorRecord> CONSTRAINT_3 = UniqueKeys0.CONSTRAINT_3;
+    public static final UniqueKey<BbRecord> CONSTRAINT_84 = UniqueKeys0.CONSTRAINT_84;
+    public static final UniqueKey<CcRecord> CONSTRAINT_86 = UniqueKeys0.CONSTRAINT_86;
+    public static final UniqueKey<DdRecord> CONSTRAINT_88 = UniqueKeys0.CONSTRAINT_88;
     public static final UniqueKey<FilmRecord> CONSTRAINT_2 = UniqueKeys0.CONSTRAINT_2;
     public static final UniqueKey<FilmActorRecord> CONSTRAINT_7 = UniqueKeys0.CONSTRAINT_7;
     public static final UniqueKey<LanguageRecord> CONSTRAINT_C = UniqueKeys0.CONSTRAINT_C;
@@ -55,6 +71,9 @@ public class Keys {
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<BbRecord, AaRecord> FK4S6JWQ48UJLCMEDRLBK37R97 = ForeignKeys0.FK4S6JWQ48UJLCMEDRLBK37R97;
+    public static final ForeignKey<CcRecord, BbRecord> FKI7XHHMC0Y03KEL62MTI7AJWXI = ForeignKeys0.FKI7XHHMC0Y03KEL62MTI7AJWXI;
+    public static final ForeignKey<DdRecord, BbRecord> FKAWQPTEP76F0TMYECFVS27DKLP = ForeignKeys0.FKAWQPTEP76F0TMYECFVS27DKLP;
     public static final ForeignKey<FilmRecord, LanguageRecord> FKD2YJC1RU34H1SMWLA3FX7B6NX = ForeignKeys0.FKD2YJC1RU34H1SMWLA3FX7B6NX;
     public static final ForeignKey<FilmRecord, LanguageRecord> FKN2UB730RPO5B5E9X6U2LWL9FT = ForeignKeys0.FKN2UB730RPO5B5E9X6U2LWL9FT;
     public static final ForeignKey<FilmActorRecord, FilmRecord> FK3FSUXQ0JJ1XONRE7BHROOPVBX = ForeignKeys0.FK3FSUXQ0JJ1XONRE7BHROOPVBX;
@@ -65,19 +84,30 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 extends AbstractKeys {
+        public static Identity<AaRecord, Integer> IDENTITY_AA = createIdentity(Aa.AA, Aa.AA.ID);
         public static Identity<ActorRecord, Integer> IDENTITY_ACTOR = createIdentity(Actor.ACTOR, Actor.ACTOR.ACTORID);
+        public static Identity<BbRecord, Integer> IDENTITY_BB = createIdentity(Bb.BB, Bb.BB.ID);
+        public static Identity<CcRecord, Integer> IDENTITY_CC = createIdentity(Cc.CC, Cc.CC.ID);
+        public static Identity<DdRecord, Integer> IDENTITY_DD = createIdentity(Dd.DD, Dd.DD.ID);
         public static Identity<FilmRecord, Integer> IDENTITY_FILM = createIdentity(Film.FILM, Film.FILM.FILMID);
         public static Identity<LanguageRecord, Integer> IDENTITY_LANGUAGE = createIdentity(Language.LANGUAGE, Language.LANGUAGE.LANGUAGEID);
     }
 
     private static class UniqueKeys0 extends AbstractKeys {
+        public static final UniqueKey<AaRecord> CONSTRAINT_8 = createUniqueKey(Aa.AA, "CONSTRAINT_8", Aa.AA.ID);
         public static final UniqueKey<ActorRecord> CONSTRAINT_3 = createUniqueKey(Actor.ACTOR, "CONSTRAINT_3", Actor.ACTOR.ACTORID);
+        public static final UniqueKey<BbRecord> CONSTRAINT_84 = createUniqueKey(Bb.BB, "CONSTRAINT_84", Bb.BB.ID);
+        public static final UniqueKey<CcRecord> CONSTRAINT_86 = createUniqueKey(Cc.CC, "CONSTRAINT_86", Cc.CC.ID);
+        public static final UniqueKey<DdRecord> CONSTRAINT_88 = createUniqueKey(Dd.DD, "CONSTRAINT_88", Dd.DD.ID);
         public static final UniqueKey<FilmRecord> CONSTRAINT_2 = createUniqueKey(Film.FILM, "CONSTRAINT_2", Film.FILM.FILMID);
         public static final UniqueKey<FilmActorRecord> CONSTRAINT_7 = createUniqueKey(FilmActor.FILM_ACTOR, "CONSTRAINT_7", FilmActor.FILM_ACTOR.FILMS_FILMID, FilmActor.FILM_ACTOR.ACTORS_ACTORID);
         public static final UniqueKey<LanguageRecord> CONSTRAINT_C = createUniqueKey(Language.LANGUAGE, "CONSTRAINT_C", Language.LANGUAGE.LANGUAGEID);
     }
 
     private static class ForeignKeys0 extends AbstractKeys {
+        public static final ForeignKey<BbRecord, AaRecord> FK4S6JWQ48UJLCMEDRLBK37R97 = createForeignKey(org.jooq.example.jpa.jooq.Keys.CONSTRAINT_8, Bb.BB, "FK4S6JWQ48UJLCMEDRLBK37R97", Bb.BB.PARENT_ID);
+        public static final ForeignKey<CcRecord, BbRecord> FKI7XHHMC0Y03KEL62MTI7AJWXI = createForeignKey(org.jooq.example.jpa.jooq.Keys.CONSTRAINT_84, Cc.CC, "FKI7XHHMC0Y03KEL62MTI7AJWXI", Cc.CC.PARENT_ID);
+        public static final ForeignKey<DdRecord, BbRecord> FKAWQPTEP76F0TMYECFVS27DKLP = createForeignKey(org.jooq.example.jpa.jooq.Keys.CONSTRAINT_84, Dd.DD, "FKAWQPTEP76F0TMYECFVS27DKLP", Dd.DD.PARENT_ID);
         public static final ForeignKey<FilmRecord, LanguageRecord> FKD2YJC1RU34H1SMWLA3FX7B6NX = createForeignKey(org.jooq.example.jpa.jooq.Keys.CONSTRAINT_C, Film.FILM, "FKD2YJC1RU34H1SMWLA3FX7B6NX", Film.FILM.LANGUAGE_LANGUAGEID);
         public static final ForeignKey<FilmRecord, LanguageRecord> FKN2UB730RPO5B5E9X6U2LWL9FT = createForeignKey(org.jooq.example.jpa.jooq.Keys.CONSTRAINT_C, Film.FILM, "FKN2UB730RPO5B5E9X6U2LWL9FT", Film.FILM.ORIGINALLANGUAGE_LANGUAGEID);
         public static final ForeignKey<FilmActorRecord, FilmRecord> FK3FSUXQ0JJ1XONRE7BHROOPVBX = createForeignKey(org.jooq.example.jpa.jooq.Keys.CONSTRAINT_2, FilmActor.FILM_ACTOR, "FK3FSUXQ0JJ1XONRE7BHROOPVBX", FilmActor.FILM_ACTOR.FILMS_FILMID);
